@@ -11,6 +11,9 @@
     "hostingPlanName": {
       "type": "string"
     },
+    "siteLocation": {
+      "type": "string"
+    },
     "SignalR_service_name": {
       "type": "string"
     },
@@ -111,7 +114,7 @@
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2018-02-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "West US 2",
+      "location": "[parameters('siteLocation')]",
       "sku": {
         "name": "F1",
         "tier": "Free",
@@ -135,7 +138,7 @@
       "type": "Microsoft.Web/sites",
       "apiVersion": "2018-11-01",
       "name": "[parameters('siteName')]",
-      "location": "West US 2",
+      "location": "[parameters('siteLocation')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
         "[resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name'))]"
@@ -203,7 +206,7 @@
       "type": "Microsoft.Web/sites/config",
       "apiVersion": "2018-11-01",
       "name": "[concat(parameters('siteName'), '/web')]",
-      "location": "West US 2",
+      "location": "[parameters('siteLocation')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
       ],
@@ -275,7 +278,7 @@
       "type": "Microsoft.Web/sites/hostNameBindings",
       "apiVersion": "2018-11-01",
       "name": "[concat(parameters('siteName'), '/', parameters('siteName'), '.azurewebsites.net')]",
-      "location": "West US 2",
+      "location": "[parameters('siteLocation')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
       ],
