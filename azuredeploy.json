@@ -55,7 +55,7 @@
       },
       "kind": "LUIS.Authoring",
       "properties": {
-        "customSubDomainName": "inventorymanagement-luis-authoring"
+        "customSubDomainName": "[parameters('cognitiveservice_luis_authoringkey_name')]"
       }
     },
     {
