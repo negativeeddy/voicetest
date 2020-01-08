@@ -180,7 +180,7 @@
             "displayName": "appsettings"
           },
           "properties": {
-            "Azure:SignalR:Connectionstring": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name')), '2018-10-01').primaryConnectionstring]"
+            "Azure:SignalR:ConnectionString": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name')), '2018-10-01').primaryConnectionstring]"
           }
         },
         {
