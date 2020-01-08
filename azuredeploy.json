@@ -3,25 +3,25 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "siteName": {
-      "type": "String"
+      "type": "string"
     },
     "applicationinsights_name": {
-      "type": "String"
+      "type": "string"
     },
     "hostingPlanName": {
-      "type": "String"
+      "type": "string"
     },
     "SignalR_service_name": {
-      "type": "String"
+      "type": "string"
     },
     "cognitiveservice_speech_name": {
-      "type": "String"
+      "type": "string"
     },
     "cognitiveservice_luis_name": {
-      "type": "String"
+      "type": "string"
     },
     "cognitiveservice_luis_authoringkey_name": {
-      "type": "String"
+      "type": "string"
     },
     "repoUrl": {
       "type": "string"
@@ -180,7 +180,7 @@
             "displayName": "appsettings"
           },
           "properties": {
-            "Azure:SignalR:ConnectionString": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name')), '2018-10-01').primaryConnectionString]"
+            "Azure:SignalR:Connectionstring": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name')), '2018-10-01').primaryConnectionstring]"
           }
         },
         {
