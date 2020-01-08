@@ -15,7 +15,6 @@
     },
     "signalr_service_name": {
       "type": "string",
-      "defaultValue": "[concat(parameters('siteName'),'-signalr')]"
     },
     "repoUrl": {
       "type": "string"
