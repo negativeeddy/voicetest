@@ -11,7 +11,11 @@
     },
     "siteLocation": {
       "type": "string",
-      "defaultValue" : "West US 2"
+      "defaultValue": "West US 2"
+    },
+    "signalr_service_name": {
+      "type": "string",
+      "defaultValue": "[concat(parameters('siteName'),'-signalr')]"
     },
     "repoUrl": {
       "type": "string"
@@ -22,7 +26,6 @@
   },
   "variables": {
     "applicationinsights_name": "[concat(parameters('siteName'),'-appinsights')]",
-    "signalr_service_name": "[concat(parameters('siteName'),'-signalr')]",
     "cognitiveservice_speech_name": "[concat(parameters('siteName'),'-speech')]",
     "cognitiveservice_luis_name": "[concat(parameters('siteName'),'-luis')]",
     "cognitiveservice_luis_authoringkey_name": "[concat(parameters('siteName'),'-luisauthoringkey')]"
@@ -79,7 +82,7 @@
     {
       "type": "Microsoft.SignalRService/SignalR",
       "apiVersion": "2018-10-01",
-      "name": "[variables('signalr_service_name')]",
+      "name": "[parameters('signalr_service_name')]",
       "location": "westus2",
       "sku": {
         "name": "Free_F1",
@@ -88,7 +91,7 @@
         "capacity": 1
       },
       "properties": {
-        "hostNamePrefix": "[variables('signalr_service_name')]",
+        "hostNamePrefix": "[parameters('signalr_service_name')]",
         "features": [
           {
             "flag": "ServiceMode",
@@ -134,7 +137,7 @@
       "location": "[parameters('siteLocation')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-        "[resourceId('Microsoft.SignalRService/SignalR', variables('signalr_service_name'))]"
+        "[resourceId('Microsoft.SignalRService/SignalR', parameters('signalr_service_name'))]"
       ],
       "kind": "app",
       "properties": {
@@ -176,7 +179,7 @@
             "displayName": "appsettings"
           },
           "properties": {
-            "Azure:SignalR:ConnectionString": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', variables('signalr_service_name')), '2018-10-01').primaryConnectionString]"
+            "Azure:SignalR:ConnectionString": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', parameters('signalr_service_name')), '2018-10-01').primaryConnectionString]"
           }
         },
         {
