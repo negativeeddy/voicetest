@@ -3,31 +3,24 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "siteName": {
-      "defaultValue": "coffeeshopinventory",
       "type": "String"
     },
     "insights_name": {
-      "defaultValue": "[concat(parameters('siteName'), '-insights')]",
       "type": "String"
     },
     "serverfarms_name": {
-      "defaultValue": "[concat(parameters('siteName'), '-webappplan')]",
       "type": "String"
     },
     "SignalR_service_name": {
-      "defaultValue": "[concat(parameters('siteName'), '-signalr')]",
       "type": "String"
     },
     "cognitiveservice_speech_name": {
-      "defaultValue": "[concat(parameters('siteName'), '-speechservices')]",
       "type": "String"
     },
     "cognitiveservice_luis_name": {
-      "defaultValue": "[concat(parameters('siteName'), '-luis')]",
       "type": "String"
     },
     "cognitiveservice_luis__authoringkey_name": {
-      "defaultValue": "[concat(parameters('siteName'), '-luis-authoring')]",
       "type": "String"
     }
   },
