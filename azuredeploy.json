@@ -5,13 +5,13 @@
     "siteName": {
       "type": "string"
     },
-    "applicationinsights_name": {
-      "type": "string"
-    },
     "hostingPlanName": {
       "type": "string"
     },
     "siteLocation": {
+      "type": "string"
+    },
+    "applicationinsights_name": {
       "type": "string"
     },
     "SignalR_service_name": {
