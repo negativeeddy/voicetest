@@ -1,0 +1,18 @@
+﻿@page
+@model Microsoft.CognitiveServices.DeviceBridge.Web.Pages.TranscriptionLogModel
+@{
+    ViewData["Title"] = "TranscriptionLog";
+}
+
+<div class="container">
+    <div class="row h1">Cognitive Services Device Bridge</div>
+    <div class="row h2 text-muted">Transcription log</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-12" style="overflow: auto">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+<script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/bridgeListener.js"></script>
