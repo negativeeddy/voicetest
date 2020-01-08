@@ -14,7 +14,7 @@
       "defaultValue": "West US 2"
     },
     "signalr_service_name": {
-      "type": "string",
+      "type": "string"
     },
     "repoUrl": {
       "type": "string"
