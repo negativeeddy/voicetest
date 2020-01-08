@@ -7,7 +7,7 @@
     },
     "hostingPlanName": {
       "type": "string",
-      "defaultValue": "[(parameters('siteName')]"
+      "defaultValue": "[parameters('siteName')]"
     },
     "siteLocation": {
       "type": "string",
