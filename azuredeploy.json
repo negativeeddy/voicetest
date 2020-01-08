@@ -6,25 +6,12 @@
       "type": "string"
     },
     "hostingPlanName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "[concat(parameters('siteName'),'-hostingplan')]"
     },
     "siteLocation": {
-      "type": "string"
-    },
-    "applicationinsights_name": {
-      "type": "string"
-    },
-    "SignalR_service_name": {
-      "type": "string"
-    },
-    "cognitiveservice_speech_name": {
-      "type": "string"
-    },
-    "cognitiveservice_luis_name": {
-      "type": "string"
-    },
-    "cognitiveservice_luis_authoringkey_name": {
-      "type": "string"
+      "type": "string",
+      "defaultValue" : "West US 2"
     },
     "repoUrl": {
       "type": "string"
@@ -33,38 +20,44 @@
       "type": "string"
     }
   },
-  "variables": {},
+  "variables": {
+    "applicationinsights_name": "[concat(parameters('siteName'),'-appinsights')]",
+    "signalr_service_name": "[concat(parameters('siteName'),'-signalr')]",
+    "cognitiveservice_speech_name": "[concat(parameters('siteName'),'-speech')]",
+    "cognitiveservice_luis_name": "[concat(parameters('siteName'),'-luis')]",
+    "cognitiveservice_luis_authoringkey_name": "[concat(parameters('siteName'),'-luisauthoringkey')]"
+  },
   "resources": [
     {
       "type": "Microsoft.CognitiveServices/accounts",
       "apiVersion": "2017-04-18",
-      "name": "[parameters('cognitiveservice_luis_name')]",
+      "name": "[variables('cognitiveservice_luis_name')]",
       "location": "westus2",
       "sku": {
         "name": "S0"
       },
       "kind": "LUIS",
       "properties": {
-        "customSubDomainName": "[parameters('cognitiveservice_luis_name')]"
+        "customSubDomainName": "[variables('cognitiveservice_luis_name')]"
       }
     },
     {
       "type": "Microsoft.CognitiveServices/accounts",
       "apiVersion": "2017-04-18",
-      "name": "[parameters('cognitiveservice_luis_authoringkey_name')]",
+      "name": "[variables('cognitiveservice_luis_authoringkey_name')]",
       "location": "westus",
       "sku": {
         "name": "F0"
       },
       "kind": "LUIS.Authoring",
       "properties": {
-        "customSubDomainName": "[parameters('cognitiveservice_luis_authoringkey_name')]"
+        "customSubDomainName": "[variables('cognitiveservice_luis_authoringkey_name')]"
       }
     },
     {
       "type": "Microsoft.CognitiveServices/accounts",
       "apiVersion": "2017-04-18",
-      "name": "[parameters('cognitiveservice_speech_name')]",
+      "name": "[variables('cognitiveservice_speech_name')]",
       "location": "westus2",
       "sku": {
         "name": "S0"
@@ -75,7 +68,7 @@
     {
       "type": "microsoft.insights/components",
       "apiVersion": "2015-05-01",
-      "name": "[parameters('applicationinsights_name')]",
+      "name": "[variables('applicationinsights_name')]",
       "location": "westus2",
       "kind": "web",
       "properties": {
@@ -86,7 +79,7 @@
     {
       "type": "Microsoft.SignalRService/SignalR",
       "apiVersion": "2018-10-01",
-      "name": "[parameters('SignalR_service_name')]",
+      "name": "[variables('signalr_service_name')]",
       "location": "westus2",
       "sku": {
         "name": "Free_F1",
@@ -95,7 +88,7 @@
         "capacity": 1
       },
       "properties": {
-        "hostNamePrefix": "[parameters('SignalR_service_name')]",
+        "hostNamePrefix": "[variables('signalr_service_name')]",
         "features": [
           {
             "flag": "ServiceMode",
@@ -141,7 +134,7 @@
       "location": "[parameters('siteLocation')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-        "[resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name'))]"
+        "[resourceId('Microsoft.SignalRService/SignalR', variables('signalr_service_name'))]"
       ],
       "kind": "app",
       "properties": {
@@ -183,7 +176,7 @@
             "displayName": "appsettings"
           },
           "properties": {
-            "Azure:SignalR:ConnectionString": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', parameters('SignalR_service_name')), '2018-10-01').primaryConnectionstring]"
+            "Azure:SignalR:ConnectionString": "[listkeys(resourceId('Microsoft.SignalRService/SignalR', variables('signalr_service_name')), '2018-10-01').primaryConnectionstring]"
           }
         },
         {
