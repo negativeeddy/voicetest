@@ -288,7 +288,7 @@
     },
     { 
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2017-05-10",
       "name": "pid-1f17770a-1d73-57a4-b0e3-10e9ea631676", 
       "properties": {
         "mode": "Incremental",
