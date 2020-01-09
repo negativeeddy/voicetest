@@ -15,7 +15,7 @@ This project provides you with the scripts needed to deploy the necessary resour
 
 4. Make sure the correct "Directory" and "Subscription" are selected.
 
-5. Next, you are able to edit the name of "Resource Group Name", "Site Name", and input a value for "Signalr_service_name". You are also able to choose the "SiteLocation" of where you want these resources to be deployed. 
+5. Next, you are able to edit the name of "Resource Group Name", "Site Name", and input a value for "Signalr_service_name". Also, choose the "SiteLocation" of "West US 2". 
 <br/>\*Recommendation: Make the names easy to remember. You will be using them later.<br>
 
 6. Click "Next" at the bottom of the page.
@@ -38,7 +38,7 @@ This project provides you with the scripts needed to deploy the necessary resour
  ````
      .\createSpeechApp.ps1
  ````
-3. The script will prompt you for the following information(all will be found in your Azure Portal):
+3. The script will prompt you for the following information(theses resources will be in a resource group named the same as your sitename):
 
    •	siteName – whatever you used for the sitename in "Deploying Azure Resources"
    
@@ -46,7 +46,7 @@ This project provides you with the scripts needed to deploy the necessary resour
    
    •	luisauthoringkey – the key from the <siteName>-luisauthoringkey resource
    
-   •	your subscription Id
+   •	your Azure subscription id
 
 4. Once deployed your should get the following message:
 ````
