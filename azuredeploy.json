@@ -65,7 +65,8 @@
         "name": "S0"
       },
       "kind": "SpeechServices",
-      "properties": {}
+      "properties": {
+      }
     },
     {
       "type": "microsoft.insights/components",
@@ -95,12 +96,14 @@
           {
             "flag": "ServiceMode",
             "value": "Default",
-            "properties": {}
+            "properties": {
+            }
           },
           {
             "flag": "EnableConnectivityLogs",
             "value": "True",
-            "properties": {}
+            "properties": {
+            }
           }
         ]
       }
@@ -240,7 +243,8 @@
         ],
         "loadBalancing": "LeastRequests",
         "experiments": {
-          "rampUpRules": []
+          "rampUpRules": [
+          ]
         },
         "autoHealEnabled": false,
         "localMySqlEnabled": false,
@@ -281,6 +285,20 @@
         "siteName": "parameters('siteName')",
         "hostNameType": "Verified"
       }
-    }
+    },
+    { 
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "pid-1f17770a-1d73-57a4-b0e3-10e9ea631676", 
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+          ]
+        }
+      }
+    } // remove all comments from the file when complete  
   ]
 }
