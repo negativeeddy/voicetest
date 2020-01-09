@@ -10,18 +10,21 @@ This project provides you with the scripts needed to deploy the necessary resour
 
 2. A new window should pop up that prompts you to log into your Azure account. 
 
-3. Once logged in your should be greeted with the below screen:<br/> ## ADD SCREENSHOT <br>
+3. Once logged in your should be greeted with the below screen:
+![Landing Page](doc/LandingPage.png)
 
 4. Make sure the correct "Directory" and "Subscription" are selected.
 
-5. Next, you are able to edit the name of "Resource Group Name", "Site Name", and imput a value for "Signalr_service_name". You are also able to choose the "SiteLocation" of where you want these resources to be deployed. 
-<br/>\*Reconmendation: Make the names easy to remember. You will be using them later.<br>
+5. Next, you are able to edit the name of "Resource Group Name", "Site Name", and input a value for "Signalr_service_name". You are also able to choose the "SiteLocation" of where you want these resources to be deployed. 
+<br/>\*Recommendation: Make the names easy to remember. You will be using them later.<br>
 
 6. Click "Next" at the bottom of the page.
 
 7. The next page will list the Azure resources that will be deployed. Click "Deploy" to continue. 
+![List of Resources](doc/ResourceList.png)
 
-8. It will take a few minutes for all the resources to be deployed, but once it is complete you should see the following page. <br/> ## Add Screenshot <br> 
+8. It will take a few minutes for all the resources to be deployed, but once it is complete you should see the following page. 
+![Completed Deployment](doc/ResourceFinish.png)
 
 9. You are now ready to deploy the Speech Services. 
 
@@ -56,12 +59,12 @@ Once the speech service and the azure resources have been deployed, its time to 
 
 1. Go to the [Speech Studio Portal](https://speech.microsoft.com/portal?noredirect=true) and login using the same account you used for the above deployments.
 
-2. Onced logged in, select <sitename>-speech(<sitename> is the name you provided in "Deploying Azure Resources" section) and click "Got to Studio" at the top of the page.
+2. Once logged in, select <sitename>-speech(<sitename> is the name you provided in "Deploying Azure Resources" section) and click "Got to Studio" at the top of the page.
  
 3. Click on <sitename>-commands
 
-4. You should a page that looks simmular to the one below:
-<br/>## ADD SCREENSHOt<br>
+4. You should a page that looks similar to the one below:
+![Speech Command](doc/SpeechCommand.png)
 
 5. Open another browser tab and go to the website you deployed in "Deploying Azure Resources" section (https://<sitename>.azurewebsites.net/)
 
@@ -72,4 +75,4 @@ Once the speech service and the azure resources have been deployed, its time to 
 8. In the test bot type 'delete 4 Lattes'
    • It is currently case sensitive for the drink types. 
 
-9. You should see the 4 latte change in the deployed website via the signalr connection. 
+9. You should see the 4 latte change in the deployed website via the signalR connection.
