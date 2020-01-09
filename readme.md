@@ -1,1 +1,1 @@
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https%3A%2F%2Fraw.githubusercontent.com%2Fnegativeeddy%2Fvoicetest%2Fupdatedeploywithusagetag%2Fazuredeploy.json)
