@@ -1,18 +1,13 @@
 #Requires -Version 6
 
 Param(
-    [string] $speechResourceKey,
-    [string] $siteName,
-    [string] $azureSubscriptionId,
+    [string] $speechResourceKey = $(Read-Host -prompt "speechResourceKey"),
+    [string] $siteName = $(Read-Host -prompt "siteName"),
+    [string] $azureSubscriptionId = $(Read-Host -prompt "azureSubscriptionId"),
     [string] $resourceGroup,
-    [string] $luisAuthoringKey,
+    [string] $luisAuthoringKey = $(Read-Host -prompt "luisAuthoringKey"),
     [string] $luisAuthoringRegion = "westus"
 )
-
-# Get mandatory parameters
-if (-not $siteName) {
-    $name = Read-Host "? the site name you used when deploying to Azure"
-}
 
 if (-not $resourceGroup) {
 	$resourceGroup = $siteName
@@ -21,9 +16,13 @@ if (-not $resourceGroup) {
 $speechAppName = "$siteName-commands"
 $speechResourceName = "$siteName-speech"
 $luisResourceName = "$siteName-luisauthoringkey"
+$inventoryapiurl = "https://$sitename.azurewebsites.net"
 
+#
 # create the custom speech app
-write-host "Creating the speech custom command project $speechAppName"
+#
+
+write-host "Creating the speech custom command project '$speechAppName'"
 $body = @{
   name = $speechAppName
   stage = "default"
@@ -46,6 +45,7 @@ try {
 } catch {
     # Dig into the exception to get the Response details.
     # Note that value__ is not a typo.
+    Write-Host $_.Exception
     Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
     Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
     exit
@@ -55,20 +55,50 @@ $appId = $response.appId
 write-host "Created project Id $appId"
 write-host $response
 
+#
 # update the dialog model of the app
-write-host "populating $speechAppName with the inventory commands model"
+#
+
+# get the current model so that we can modify it
+
+write-host "getting the initial $speechAppName inventory commands model"
 try {
-    $response = invoke-restmethod -Method PUT -Uri "https://westus2.commands.speech.microsoft.com/apps/$appId/stages/default/cultures/en-us" -InFile "inventoryManagement.json" -Header $headers
+    $model = invoke-restmethod -Method GET -Uri "https://westus2.commands.speech.microsoft.com/apps/$appId/stages/default/cultures/en-us" -Header $headers
 } catch {
     # Dig into the exception to get the Response details.
     # Note that value__ is not a typo.
+    Write-Host $model
+    Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+    Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+    exit
+}
+
+$model | ConvertTo-Json -depth 100 | Out-File "initialModel.json"
+
+
+write-host "patching the $speechAppName inventory commands model"
+
+# change the model
+$newModel = Get-Content './inventoryManagement.json' | Out-String | ConvertFrom-Json
+$model.httpEndpoints = $newModel.httpEndpoints
+$model.httpEndpoints[0].url = "https://$siteName.azurewebsites.net/api/Inventory/UpdateInventory"
+$model.lgTemplates = $newModel.lgTemplates
+$model.globalParameters = $newModel.globalParameters
+$model.commands = $newModel.commands
+$model | ConvertTo-Json -depth 100 | Out-File "newModel.json"
+
+write-host "updating $speechAppName with the new inventory commands model"
+try {
+    $response = invoke-restmethod -Method PUT -Uri "https://westus2.commands.speech.microsoft.com/apps/$appId/stages/default/cultures/en-us" -Body ($model | ConvertTo-Json  -depth 100) -Header $headers
+} catch {
+    # Dig into the exception to get the Response details.
+    # Note that value__ is not a typo.
+    Write-Host $_.Exception.Response
     Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
     Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
     exit
 }
 write-host "done."
-
-Read-Host "please open a browser to https://speech.microsoft.com/portal/$speechResourceName/CustomCommands/$appId and update the LUIS prediction resource in the settings section. Then press enter here to continue."
 
 #start the training for the model
 write-host "starting the training"
@@ -82,16 +112,25 @@ try {
 } catch {
     # Dig into the exception to get the Response details.
     # Note that value__ is not a typo.
-    Write-Host $response
+    Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+    Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
     exit
 }
-
 
 while($response.completed -ne "true")
 {
     start-sleep -seconds 1
     write-host -NoNewline "."
-    $response = invoke-restmethod -Method GET -Uri "https://westus2.commands.speech.microsoft.com/apps/$appId/stages/default/cultures/en-us/train/$versionId" -Header $headers
+    try {
+        $response = invoke-restmethod -Method GET -Uri "https://westus2.commands.speech.microsoft.com/apps/$appId/stages/default/cultures/en-us/train/$versionId" -Header $headers
+    }
+    catch {
+        # Dig into the exception to get the Response details.
+        # Note that value__ is not a typo.
+        Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+        Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+        exit
+    }
 }
 write-host "training is completed"
 
@@ -101,3 +140,10 @@ $response = invoke-restmethod -Method POST -Uri "https://westus2.commands.speech
 write-host "model is published"
 
 #print out the relevant info for the user to put in the application
+Write-Host
+Write-Host "***********************"
+Write-Host "Speech commands have been published."
+Write-Host "Update these parameters in the client"
+Write-Host "    SpeechApplicationId   = $appId"
+Write-Host "    SpeechSubscriptionKey = $speechResourceKey"
+Write-Host "***********************"
