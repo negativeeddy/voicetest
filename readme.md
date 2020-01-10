@@ -67,10 +67,11 @@ Once you have all the above resources created and deployed you are able to test 
 
 1. In Visual Studio, open the Microsoft.CognitiveServices.Inventory.sln solution file. 
 
-2. In the "Solution Explorer", right click Microsoft.CognitiveServices.Inventory.UWP and select "Set as StartUp Project". Your "Solution Explorer" should look like this:
-![Visual Studio](doc/SEStartUp.png)
+2. In the "Solution Explorer", right click Microsoft.CognitiveServices.Inventory.UWP and select "Set as StartUp Project".
+
 
 3. Expand the Microsoft.CognitiveServices.Inventory project and open "appSettings.json". Update this file with your SpeechApplicationId and SpeechSubscriptionKey from above.
+![AppSettings](doc/AppSettings.png)
 
 4. Save 
 
