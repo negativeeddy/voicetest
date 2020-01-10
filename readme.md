@@ -76,13 +76,13 @@ Once you have all the above resources created and deployed you are able to test 
 
 5. In the taskbar, search for and open "Developer Settings"
 
-6. You will need to acctevate "Developer Mode" at the top of the menu. It should look like this when done: 
+6. You will need to activate "Developer Mode" at the top of the menu. It should look like this when done: 
 ![Developer Settings](doc/DeveloperSettings.png)
 
 7. Back in Visual Studio, run the Microsoft.CognitiveServices.Inventory.UWP by clicking the play button at the top of the screen:
 ![Run App](doc/RunApp.png)
 
-8. A prompt will appere asking for permission to use your microphone. Give it permission.
+8. A prompt will appear asking for permission to use your microphone. Give it permission.
 
 9. The UWP app should now be running, and if everything it connected proplly you should see "Status: connected" at the top: 
 ![Connected](doc/Connected.png)
@@ -91,7 +91,7 @@ Once you have all the above resources created and deployed you are able to test 
 
 11. Click the Speak button in the UWP app and say "Delete 2 lattes". 
 
-12. You will get a confermation and see a 2  latte change in the deployed website via the signalR connection.
+12. You will get a confirmation and see a 2  latte change in the deployed website via the signalR connection.
 
 
 ## Further Testing
