@@ -90,7 +90,7 @@ Once you have all the above resources created and deployed you are able to test 
 8. The UWP app should now be running, and if everything it connected proplly you should see "Status: connected" at the top: 
 ![Connected](doc/Connected.png)
 
-9.Open a browser window and go to the website you deployed in "Deploying Azure Resources" section (https://<sitename>.azurewebsites.net/). This will show your starting inventory. 
+9. Open a browser window and go to the website you deployed in "Deploying Azure Resources" section (https://<sitename>.azurewebsites.net/). This will show your starting inventory. 
 
 10. Click the Speak button in the UWP app and say "Delete 2 lattes". 
 
