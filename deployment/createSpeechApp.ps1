@@ -72,8 +72,7 @@ try {
     exit
 }
 
-$model | ConvertTo-Json -depth 100 | Out-File "initialModel.json"
-
+#$model | ConvertTo-Json -depth 100 | Out-File "initialModel.json"
 
 write-host "patching the $speechAppName inventory commands model"
 
@@ -85,6 +84,7 @@ $model.httpEndpoints[0].url = "https://$siteName.azurewebsites.net/api/Inventory
 $model.lgTemplates = $newModel.lgTemplates
 $model.globalParameters = $newModel.globalParameters
 $model.commands = $newModel.commands
+
 #$model | ConvertTo-Json -depth 100 | Out-File "newModel.json"
 
 # send the updated model up to the application
