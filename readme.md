@@ -67,31 +67,33 @@ Once you have all the above resources created and deployed you are able to test 
 
 1. In Visual Studio, open the Microsoft.CognitiveServices.Inventory.sln solution file. 
 
-2. In the "Soluiton Explorer", right click Microsoft.CognitiveServices.Inventory.UWP and select "Set as StartUp Project". Your "Solution Explorer" should look like this:
+2. In the "Solution Explorer", right click Microsoft.CognitiveServices.Inventory.UWP and select "Set as StartUp Project". Your "Solution Explorer" should look like this:
 ![Visual Studio](doc/SEStartUp.png)
 
 3. Expand the Microsoft.CognitiveServices.Inventory project and open "appSettings.json". Update this file with your SpeechApplicationId and SpeechSubscriptionKey from above.
 
 4. Save 
 
-5. In the taskbar, search for and open "Developer Settings"
+5. **Ensure Windows is in Develeper Mode** To build and deploy UWP apps locally, Windows needs to be in developer mode. You can ensure you have Developer Mode enabled by doing the following:
 
-6. You will need to activate "Developer Mode" at the top of the menu. It should look like this when done: 
+   1. In the taskbar, search for and open "Developer Settings"
+
+   2. You will need to activate "Developer Mode" at the top of the menu. It should look like this when done: 
 ![Developer Settings](doc/DeveloperSettings.png)
 
-7. Back in Visual Studio, run the Microsoft.CognitiveServices.Inventory.UWP by clicking the play button at the top of the screen:
+6. Back in Visual Studio, run the Microsoft.CognitiveServices.Inventory.UWP by clicking the play button at the top of the screen:
 ![Run App](doc/RunApp.png)
 
-8. A prompt will appear asking for permission to use your microphone. Give it permission.
+7. A prompt will appear asking for permission to use your microphone. Give it permission.
 
-9. The UWP app should now be running, and if everything it connected proplly you should see "Status: connected" at the top: 
+8. The UWP app should now be running, and if everything it connected proplly you should see "Status: connected" at the top: 
 ![Connected](doc/Connected.png)
 
-10.Open a browser window and go to the website you deployed in "Deploying Azure Resources" section (https://<sitename>.azurewebsites.net/). This will show your starting inventory. 
+9.Open a browser window and go to the website you deployed in "Deploying Azure Resources" section (https://<sitename>.azurewebsites.net/). This will show your starting inventory. 
 
-11. Click the Speak button in the UWP app and say "Delete 2 lattes". 
+10. Click the Speak button in the UWP app and say "Delete 2 lattes". 
 
-12. You will get a confirmation and see a 2  latte change in the deployed website via the signalR connection.
+11. You will get a confirmation and see a 2  latte change in the deployed website via the signalR connection.
 
 
 ## Further Testing
