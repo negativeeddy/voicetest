@@ -23,39 +23,43 @@ namespace Microsoft.CognitiveServices.DeviceBridge.Web.Models
 
         public bool ContainsItem(string item)
         {
-            return this.items.ContainsKey(item);
+            return this.items.ContainsKey(item.ToLowerInvariant());
         }
 
         public bool TryAddItem(InventoryItem item)
         {
-            return this.items.TryAdd(item.Name, item);
+            return this.items.TryAdd(item.Name.ToLowerInvariant(), item);
         }
 
         public bool RemoveItem(string itemName)
         {
-            return this.items.Remove(itemName);
+            return this.items.Remove(itemName.ToLowerInvariant());
         }
 
         public void ReceivingItem(string itemName, int quantityReceived)
         {
+            itemName = itemName.ToLowerInvariant();
             this.items[itemName].QuantityReceived = quantityReceived;
             this.items[itemName].RemainingQuantity += quantityReceived;
         }
 
         public void SlackItem(string itemName, int quantitySlacked)
         {
+            itemName = itemName.ToLowerInvariant();
             this.items[itemName].RemainingQuantity -= quantitySlacked;
             this.items[itemName].QuantitySlacked += quantitySlacked;
         }
 
         public void ShrinkItem(string itemName, int quantityShrinked)
         {
+            itemName = itemName.ToLowerInvariant();
             this.items[itemName].RemainingQuantity -= quantityShrinked;
             this.items[itemName].QuantityShrinked += quantityShrinked;
         }
 
         public void MakeItem(string itemName, int quantityMade)
         {
+            itemName = itemName.ToLowerInvariant();
             this.items[itemName].RemainingQuantity -= quantityMade;
             this.items[itemName].QuantityMade += quantityMade;
         }
