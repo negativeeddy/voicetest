@@ -85,6 +85,12 @@ $model.lgTemplates = $newModel.lgTemplates
 $model.globalParameters = $newModel.globalParameters
 $model.commands = $newModel.commands
 
+# add the Jessa neural network voice to the model manually since it is not part of the returned model
+Add-Member -InputObject $model -Name speechOutput -MemberType NoteProperty -Value @{
+    "font" = "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)"
+    "locale" = "en-US"
+  }
+
 #$model | ConvertTo-Json -depth 100 | Out-File "newModel.json"
 
 # send the updated model up to the application
