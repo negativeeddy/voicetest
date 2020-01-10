@@ -52,9 +52,52 @@ This project provides you with the scripts needed to deploy the necessary resour
 ````
 Speech commands have been published.
 ````
+You should see a SpeechApplicationId and a SpeechSubscriptionKey below the above message. Copy these down! You will need them for testing in the UWP app in the next section.
+
+# Testing with UWP App
+Once you have all the above resources created and deployed you are able to test using a UWP app. 
+
+## Things you need first 
+1. [Visual Studio](https://visualstudio.microsoft.com/vs/)
+2. Clone the [SpeechCommandAccelerator](https://github.com/negativeeddy/SpeechCommandAccelerator) repo from GitHub
+3. The SpeechApplicationId
+4. The SpeechSubscriptionKey
+
+## Setting up the UWP App
+
+1. In Visual Studio, open the Microsoft.CognitiveServices.Inventory.sln solution file. 
+
+2. In the "Solution Explorer", right click Microsoft.CognitiveServices.Inventory.UWP and select "Set as StartUp Project".
 
 
-## Testing
+3. Expand the Microsoft.CognitiveServices.Inventory project and open "appSettings.json". Update this file with your SpeechApplicationId and SpeechSubscriptionKey from above.
+![AppSettings](doc/AppSettings.png)
+
+4. Save 
+
+5. **Ensure Windows is in Develeper Mode** To build and deploy UWP apps locally, Windows needs to be in developer mode. You can ensure you have Developer Mode enabled by doing the following:
+
+   1. In the taskbar, search for and open "Developer Settings"
+
+   2. You will need to activate "Developer Mode" at the top of the menu. It should look like this when done: 
+![Developer Settings](doc/DeveloperSettings.png)
+
+6. Back in Visual Studio, run the Microsoft.CognitiveServices.Inventory.UWP by clicking the play button at the top of the screen:
+![Run App](doc/RunApp.png)
+
+7. A prompt will appear asking for permission to use your microphone. Give it permission.
+
+8. The UWP app should now be running, and if everything it connected proplly you should see "Status: connected" at the top: 
+![Connected](doc/Connected.png)
+
+9.Open a browser window and go to the website you deployed in "Deploying Azure Resources" section (https://<sitename>.azurewebsites.net/). This will show your starting inventory. 
+
+10. Click the Speak button in the UWP app and say "Delete 2 lattes". 
+
+11. You will get a confirmation and see a 2  latte change in the deployed website via the signalR connection.
+
+
+## Further Testing
 Once the speech service and the azure resources have been deployed, its time to test!
 
 1. Go to the [Speech Studio Portal](https://speech.microsoft.com/portal?noredirect=true) and login using the same account you used for the above deployments.
