@@ -119,3 +119,11 @@ Once the speech service and the azure resources have been deployed, its time to 
    • It is currently case sensitive for the drink types. 
 
 9. You should see the 4 latte change in the deployed website via the signalR connection.
+
+## Contributing
+This project welcomes contributions and suggestions from the community. 
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
