@@ -79,9 +79,9 @@ namespace Microsoft.CognitiveServices.DeviceBridge.Web.Models
             this.TryAddItem(new InventoryItem("Latte", 20));
             this.TryAddItem(new InventoryItem("Macchiato", 20));
 
-            this.TryAddItem(new InventoryItem("Ninja Cat Cold Brew", 20));
-            this.TryAddItem(new InventoryItem("Unicorn Cappucino", 20));
-            this.TryAddItem(new InventoryItem("Tyrannosaurus Tea", 20));
+            this.TryAddItem(new InventoryItem("Drip Coffee", 20));
+            this.TryAddItem(new InventoryItem("Black Coffee", 20));
+            this.TryAddItem(new InventoryItem("Green Tea", 20));
 
             this.TryAddItem(new InventoryItem("Croissant", 20));
             this.TryAddItem(new InventoryItem("Chocolate Muffin", 20));
