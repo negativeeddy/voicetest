@@ -12,7 +12,7 @@
   "httpEndpoints": [
     {
       "name": "InventoryManagementAPI",
-      "method": "POST",
+      "method": "GET",
       "url": "https://speechacceleratorweb.azurewebsites.net/api/Inventory/UpdateInventory",
       "headers": {},
       "sendFrame": false,
@@ -141,10 +141,10 @@
                   "muffins",
                   "chocolate muffins"
                 ],
-                "Tyrannosaurus Tea": [
-                  "trex tea",
-                  "Tyrannosaurus Teas",
-                  "trex teas"
+                "Green Tea": [
+                  "green tea",
+                  "Tea",
+                  "tea"
                 ],
                 "Cappuccino": [
                   "Cappuccinos"
@@ -152,19 +152,18 @@
                 "Macchiato": [
                   "Macchiatos"
                 ],
-                "Ninja Cat Cold Brew": [
-                  "ninja cat",
+                "Cold Brew": [
                   "cold brew",
-                  "Ninja Cat Cold Brews",
-                  "ninja cats",
+                  "Cold Brews",
                   "cold brews"
                 ],
-                "Unicorn Cappucino": [
-                  "unicorn",
-                  "unicorn drink",
-                  "unicorns",
-                  "unicorn drinks",
-                  "Unicorn Cappucinos"
+                "Drip Coffee": [
+                  "drip coffee",
+                  "Drip Coffees",
+                  "drip coffees"
+                ],
+                "Black Coffee": [
+                  "black coffee"
                 ],
                 "Croissant": [
                   "crescent",
@@ -276,10 +275,10 @@
                   "muffins",
                   "chocolate muffins"
                 ],
-                "Tyrannosaurus Tea": [
-                  "trex tea",
-                  "Tyrannosaurus Teas",
-                  "trex teas"
+                "Green Tea": [
+                  "green tea",
+                  "Tea",
+                  "tea"
                 ],
                 "Cappuccino": [
                   "Cappuccinos"
@@ -287,19 +286,18 @@
                 "Macchiato": [
                   "Macchiatos"
                 ],
-                "Ninja Cat Cold Brew": [
-                  "ninja cat",
+                "Cold Brew": [
                   "cold brew",
-                  "Ninja Cat Cold Brews",
-                  "ninja cats",
+                  "Cold Brews",
                   "cold brews"
                 ],
-                "Unicorn Cappucino": [
-                  "unicorn",
-                  "unicorn drink",
-                  "unicorns",
-                  "unicorn drinks",
-                  "Unicorn Cappucinos"
+                "Drip Coffee": [
+                  "drip coffee",
+                  "Drip Coffees",
+                  "drip coffees"
+                ],
+                "Black Coffee": [
+                  "black coffee"
                 ],
                 "Croissant": [
                   "crescent",
@@ -408,10 +406,10 @@
                   "muffins",
                   "chocolate muffins"
                 ],
-                "Tyrannosaurus Tea": [
-                  "trex tea",
-                  "Tyrannosaurus Teas",
-                  "trex teas"
+                "Green Tea": [
+                  "green tea",
+                  "Tea",
+                  "tea"
                 ],
                 "Cappuccino": [
                   "Cappuccinos"
@@ -419,19 +417,18 @@
                 "Macchiato": [
                   "Macchiatos"
                 ],
-                "Ninja Cat Cold Brew": [
-                  "ninja cat",
+                "Cold Brew": [
                   "cold brew",
-                  "Ninja Cat Cold Brews",
-                  "ninja cats",
+                  "Cold Brews",
                   "cold brews"
                 ],
-                "Unicorn Cappucino": [
-                  "unicorn",
-                  "unicorn drink",
-                  "unicorns",
-                  "unicorn drinks",
-                  "Unicorn Cappucinos"
+                "Drip Coffee": [
+                  "drip coffee",
+                  "Drip Coffees",
+                  "drip coffees"
+                ],
+                "Black Coffee": [
+                  "black coffee"
                 ],
                 "Croissant": [
                   "crescent",
@@ -543,10 +540,10 @@
                   "muffins",
                   "chocolate muffins"
                 ],
-                "Tyrannosaurus Tea": [
-                  "trex tea",
-                  "Tyrannosaurus Teas",
-                  "trex teas"
+                "Green Tea": [
+                  "green tea",
+                  "Tea",
+                  "tea"
                 ],
                 "Cappuccino": [
                   "Cappuccinos"
@@ -554,19 +551,18 @@
                 "Macchiato": [
                   "Macchiatos"
                 ],
-                "Ninja Cat Cold Brew": [
-                  "ninja cat",
+                "Cold Brew": [
                   "cold brew",
-                  "Ninja Cat Cold Brews",
-                  "ninja cats",
+                  "Cold Brews",
                   "cold brews"
                 ],
-                "Unicorn Cappucino": [
-                  "unicorn",
-                  "unicorn drink",
-                  "unicorns",
-                  "unicorn drinks",
-                  "Unicorn Cappucinos"
+                "Drip Coffee": [
+                  "drip coffee",
+                  "Drip Coffees",
+                  "drip coffees"
+                ],
+                "Black Coffee": [
+                  "black coffee"
                 ],
                 "Croissant": [
                   "crescent",
