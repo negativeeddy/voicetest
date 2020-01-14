@@ -52,11 +52,11 @@ This project provides you with the scripts needed to deploy the necessary resour
 ````
 Speech commands have been published.
 ````
-   You should see a SpeechApplicationId and a SpeechSubscriptionKey below the above message. Copy these down! You will need them for        testing in the UWP app in the next section.
+   You should see a SpeechApplicationId and a SpeechSubscriptionKey below the above message. Copy these down! You will need them for testing in the UWP app in the next section.
 
-5. Go the the [Speech Studio Portal](https://speech.microsoft.com/portal) and login.
+5. Go to the [Speech Studio Portal](https://speech.microsoft.com/portal) and login.
 
-6. Slect the <Site Name>-commands project. <Site Name> is the name you provided during the Azure deploy section.
+6. Select the <Site Name>-commands project. <Site Name> is the name you provided during the Azure deploy section.
  
 7.  Navigate to "FallbackCommand"->"Http Endpoints"->"InventoryManagement" and change the "Method" to "Post". Click "Save" at the bottom of the page. 
 ##ADDSCRENSHOT!!!!!
