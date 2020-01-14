@@ -59,7 +59,7 @@ Speech commands have been published.
 6. Select the <Site Name>-commands project. <Site Name> is the name you provided during the Azure deploy section.
  
 7.  Navigate to "FallbackCommand"->"Http Endpoints"->"InventoryManagement" and change the "Method" to "Post". Click "Save" at the bottom of the page. 
-##ADDSCRENSHOT!!!!!
+![Portal Post](doc/PortalPost.png)
 
 8. "Train" and "Publish". Located at the top of the page. 
 
